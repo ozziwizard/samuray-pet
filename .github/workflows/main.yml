@@ -14,16 +14,13 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        # Robotu senin klasörüne sokuyoruz
-        run: cd samuray-pet && npm install
+        run: npm install
 
       - name: Build DMG
-        # Paketi o klasörün içinde oluşturuyoruz
-        run: cd samuray-pet && npm run build:mac
+        run: npm run build:mac
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Samuray-Pet-Mac
-          # Paketin yerini tam tarif ediyoruz
-          path: samuray-pet/dist/*.dmg
+          path: dist/*.dmg
