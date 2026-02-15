@@ -1,12 +1,9 @@
 name: Build Mac App
 on: [push]
-jobs:
 
+jobs:
   release:
     runs-on: macos-latest
-    defaults:
-      run:
-        working-directory: . # Eğer dosyaların direkt ana dizindeyse nokta kalsın
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,7 +15,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        # Eğer hata devam ederse burayı 'run: cd klasor_adin && npm install' yapabiliriz
 
       - name: Build DMG
         run: npm run build:mac
