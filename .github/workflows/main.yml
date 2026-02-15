@@ -14,14 +14,13 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        # 'samuray-pet' klasörün hangisiyse ismini tam yaz kanka
-        run: cd samuray-pet && npm install
+        run: npm install
 
       - name: Build DMG
-        run: cd samuray-pet && npm run build:mac
+        run: npm run build:mac
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Samuray-Pet-Mac
-          path: samuray-pet/dist/*.dmg
+          path: dist/*.dmg
