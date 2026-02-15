@@ -5,6 +5,10 @@ jobs:
   release:
     runs-on: macos-latest
     steps:
+      - name: Install dependencies
+        run: npm install
+
+      
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -24,3 +28,4 @@ jobs:
         with:
           name: Samuray-Pet-Mac
           path: dist/*.dmg
+          
